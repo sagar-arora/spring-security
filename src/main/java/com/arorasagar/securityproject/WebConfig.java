@@ -49,6 +49,12 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .roles("STUDENT")
                 .build();
 
+        UserDetails driesUser = User.builder()
+                .username("dries")
+                .password(passwordEncoder.encode("abc123"))
+                .roles("ADMIN")
+                .build();
+
         return new InMemoryUserDetailsManager(user);
     }
 }
